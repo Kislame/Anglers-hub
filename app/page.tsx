@@ -1,113 +1,176 @@
-import Image from "next/image";
+import { Button } from '@/components/ui/button';
+import { Poppins } from 'next/font/google';
+import { cn } from '@/lib/utils';
+import { LoginButton } from '@/components/auth/login-btn';
+import Image from 'next/image';
+const font = Poppins({
+  subsets: ['latin'],
+  weight: '600',
+});
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <header className="flex bg-[#101720] text-white items-center md:flex-row flex-col relative ">
+        <div className="  text-balance  absolute md:static  inset-0 flex flex-col  justify-center gap-6  items-center text-center bg-[#10172071] md:bg-inherit ">
+          <h1 className="text-3xl  md:text-4xl lg:text-6xl">
+            Welcome to Angler&apos;s Hub
+          </h1>
+          <p className="leading-7">
+            Your ultimate community for fishing enthusiasts to share their
+            catches, experiences, and engage with fellow anglers.
+          </p>
+          <LoginButton mode="modal" asChild>
+            <Button
+              className="max-w-[260px] mx-auto"
+              variant={'secondary'}
+              size={'lg'}
+            >
+              Sign In
+            </Button>
+          </LoginButton>
         </div>
-      </div>
+        <div className="">
+          <Image
+            src="/images/img-3.jpg"
+            width={600}
+            height={600}
+            priority
+            sizes="(max-width: 768px) 100vw, 33vw"
+            alt="Fishing community"
+            // fill={true}
+            // style={{ objectFit: 'cover' }}
+          />
+        </div>
+      </header>
+      <main className=" py-[100px] bg-[#101720] space-y-20">
+        <section className="bg-white">
+          <div className="  space-y-6 max-w-[1200px] mx-auto py-20 flex  flex-col md:flex-row items-center justify-between">
+            <article className="space-y-4 text-center md:text-left p-4">
+              <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-5xl ">
+                About Angler&apos;s Hub
+              </h2>
+              <p className="max-w-sm leading-8 ">
+                Angler&apos;s Hub is a platform created by and for fishing
+                enthusiasts. Whether you&apos;re a seasoned angler or a
+                beginner, you&apos;ll find a vibrant community to share your
+                fishing adventures, tips, and stories. Join us to explore
+                fishing locations, track your catches, and compete with others
+                in our monthly leaderboard.
+              </p>
+            </article>
+            <Image
+              width={500}
+              height={500}
+              src={'/images/img-2.jpg'}
+              alt="about us image"
+            />
+          </div>
+        </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <section className="text-white max-w-[50rem] mx-auto py-20">
+          <article className="  leading-7 space-y-4 px-5">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-5xl">
+              Events & Leaderboards
+            </h2>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+            <p>
+              Join our community events and competitions to showcase your skills
+              and connect with other anglers. Whether you&apos;re into
+              freshwater fishing or deep-sea adventures, there&apos;s an event
+              for everyone. Don&apos;t miss out on the fun and the chance to win
+              exciting prizes!
+            </p>
+
+            <ul>
+              <li>
+                <strong>Annual Fishing Derby:</strong> Test your fishing skills
+                in our biggest event of the year. Great prizes and lots of fun!
+              </li>
+              <li>
+                <strong>Kids&apos; Fishing Day:</strong> A family-friendly event
+                to encourage young anglers to enjoy fishing.
+              </li>
+              <li>
+                <strong>Night Fishing Challenge:</strong> Experience the thrill
+                of night fishing in this unique competition.
+              </li>
+              <li>
+                <strong>Regional Tournaments:</strong> Compete against local
+                anglers in various fishing categories.
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <section
+          id="community"
+          className="flex flex-col  md:flex-row max-w-[1200px] mx-auto justify-between items-center gap-6"
         >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <article className="flex flex-col justify-around items-center gap-8">
+            <div className="p-6 space-y-6 bg-white text-[#101720]">
+              <h3 className="text-2xl md:text-3xl text-center md:text-left  tracking-widest md:font-medium">
+                Share Your memories
+              </h3>
+              <p className="leading-8 max-w-sm text-lg text-center md:text-left ">
+                At Angler&apos;s Hub, we believe in the power of community.
+                Connect with fellow anglers, share your knowledge, and learn
+                from others. Here are some highlights from our community:
+              </p>
+            </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <article className="space-y-2">
+              <Image
+                width={500}
+                height={500}
+                src="/images/img-1.jpg"
+                alt="Fishing trip"
+              />
+              <p className="tracking-wide font-semibold text-center">
+                Fishing trip with friends
+              </p>
+            </article>
+          </article>
+          <article className="space-y-2">
+            <Image
+              width={500}
+              height={500}
+              src="/images/top-catch.jpg"
+              alt="Top catch"
+            />
+            <p className="tracking-wide font-semibold text-center">
+              Top catch of the month By Jhon Doe
+            </p>
+          </article>
+        </section>
+      </main>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <footer className="bg-white mt-[100px] py-[8vh] grid grid-cols-1 gap-6 place-items-center">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-6 max-w-[1200px] mx-auto">
+          <section className="w-full text-center md:text-left md:w-1/3 space-y-4">
+            <h4 className="text-xl">Join Angler&apos;s Hub Today!</h4>
+            <p className="leading-7">
+              Sign up now and become part of our vibrant fishing community.
+              Share your catches, explore new fishing locations, and connect
+              with anglers from around the world.
+            </p>
+          </section>
+          <ul>
+            <li>Twitter</li>
+            <li>Facebook</li>
+            <li>Instagram</li>
+          </ul>
+          <ul>
+            <li>About Us</li>
+            <li>Community</li>
+            <li>Sponsors</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+        <p className="text-center">
+          &copy; 2024 Angler&apos;s Hub. All rights reserved.
+        </p>
+      </footer>
+    </>
   );
 }
